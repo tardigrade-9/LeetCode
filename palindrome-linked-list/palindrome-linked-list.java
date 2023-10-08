@@ -23,14 +23,14 @@ class Solution {
         for(int i=0;i<n/2;i++){
             second = second.next;
         }
-        System.out.println(n);
+        //System.out.println(n);
         if(n%2!=0)
             second = second.next;
         //reverse list after n/2 nodes
         second = rev(second);
         
         for(int i=0;i<n/2;i++){
-            System.out.println(first.val+" "+second.val);
+           // System.out.println(first.val+" "+second.val);
             if(first.val!=second.val)
                 return false;
             first = first.next;
