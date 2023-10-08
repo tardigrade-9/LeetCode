@@ -22,6 +22,6 @@ class Solution {
     }
     
     private boolean equals(char x, char y) {
-        return x == y || x > '9' && y > '9' && ((x - 'A' == y - 'a') || (x - 'a' == y - 'A'));
+        return Character.toLowerCase(x) == Character.toLowerCase(y);
     }
 }
