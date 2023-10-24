@@ -20,20 +20,17 @@ class Solution {
         if(root==null)
             return res;
         queue.add(root);
-        while(queue.size()!=0){
-            List<TreeNode> currentLevel = new ArrayList<>();
-            List<Integer> currVal = new ArrayList<>();
-            while(queue.size()!=0){
-                currentLevel.add(queue.remove());
+        while(!queue.isEmpty()){
+            List<Integer> currLevel = new ArrayList<>();
+            for(int i = queue.size();i>0;i--){
+                TreeNode c = queue.remove();
+                currLevel.add(c.val);
+                if(c.left!=null)
+                    queue.add(c.left);
+                if(c.right!=null)
+                    queue.add(c.right);
             }
-            for(TreeNode node:currentLevel){
-                currVal.add(node.val);
-                if(node.left!=null)
-                    queue.add(node.left);
-                if(node.right!=null)
-                    queue.add(node.right);
-            }
-            res.add(currVal);
+            res.add(currLevel);
         }
         return res;
     }
